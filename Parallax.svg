@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="enable-background:new 0 0 1024 768" version="1.0" viewBox="0 0 1024 768">
+<style type="text/css">
+	.sky{fill:#FF5900;}
+	.st1{fill:#29ABE2;}
+	.st2{fill:#006837;stroke:#000000;stroke-miterlimit:10;}
+</style>
+  <path d="M.5.5h1023v767H.5z" class="sky"/>
+  <path d="M1023 1v766H1V1h1022m1-1H0v768h1024V0z"/>
+  <path d="M.5 339.5h1023v428H.5z" class="st1"/>
+  <path d="M1023 340v427H1V340h1022m1-1H0v429h1024V339z"/>
+  <path d="m0 516.93 182.5 52.57 216 24 184 97 105-20 165-110 171.5-36.26V768H0z" class="st2"/>
+</svg>

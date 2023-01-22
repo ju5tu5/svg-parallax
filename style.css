@@ -1,0 +1,87 @@
+:root {
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  /* De eerste padding drukt de content naar beneden! */
+  padding: 5rem clamp(1rem, 5vw, 3rem) 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern' 1, 'liga' on, 'dlig' on;
+  line-height: 1.5;
+  color: black;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+body > * {
+  --layout-spacing: max(8vh, 3em);
+  --max-width: 38rem;
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+}
+
+/*----------------------------------------- 
+  Mobile first Layout
+-----------------------------------------*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4rem;
+  width: 100%;
+  line-height: 4rem;
+  padding-left: 2rem;
+  background: olivedrab;
+  opacity: 0.4;
+  color: darkgreen;
+}
+
+header nav {
+  display: none;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+main section + section {
+  padding-top: var(--layout-spacing);
+}
+
+main section:nth-of-type(2) {
+  background: #006837;
+}
+
+svg path {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+svg .sun {
+  fill: #fff;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+svg .sky {
+  fill: #ff5900;
+}
+svg .water {
+  fill: #29abe2;
+}
+svg .ground {
+  fill: #006837;
+  stroke: #000000;
+  stroke-miterlimit: 10;
+}
