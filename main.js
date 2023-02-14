@@ -8,14 +8,18 @@ const ground = document.querySelector('svg .ground')
 
 window.addEventListener('scroll', () => {
   let clamped = clamp(0, containerBox.height, window.scrollY)
-  let lerped = invlerp(0, containerBox.height, clamped)
+  console.log('clamped:' + clamped)
 
-  sky.setAttribute('transform', `translate(${lerped * 250}, 0)`)
-  sky.setAttribute('transform', `scale(${1 - lerped})`)
+  let invlerped = invlerp(0, containerBox.height, clamped)
+  console.log('invlerped:' + invlerped)
+  // console.log(`invlerped: ${invlerped}`)
+
+  // sky.setAttribute('transform', `translate(${invlerped * 250}, 0)`)
+  sky.setAttribute('transform', `scale(${1 - invlerped})`)
 
   sun.setAttribute('transform', `rotate(${range(0, containerBox.height, 0, 30, clamped)}, 0, 400)`)
-  water.setAttribute('transform', `translate(0, ${lerped * 468})`)
-  ground.setAttribute('transform', `scale(${1 + lerped * 2})`)
+  water.setAttribute('transform', `translate(0, ${invlerped * 468})`)
+  ground.setAttribute('transform', `scale(${1 + invlerped * 2})`)
 })
 
 /**
@@ -24,7 +28,7 @@ window.addEventListener('scroll', () => {
  * If not it will return either the minimum or the maximum. For example:
  *  clamp(50, 100, 20) yields 50 (because value < min)
  *  clamp(50, 100, 75) yields 75 (because min < value < max)
- *  clamp(50. 100. 120) yields 100 (because value > max)
+ *  clamp(50, 100, 120) yields 100 (because value > max)
  * @param {number} min the lower value of the spectrum
  * @param {number} max the higher value of the spectrum
  * @param {number} value the value to be clamped between min and max
@@ -40,7 +44,7 @@ function clamp(min, max, value) {
  * number is 50% between 50 and 100? For example: lerp(50, 100, 0.5) yields 75
  * @param {number} min the lower value of the spectrum
  * @param {number} max the higher value of the spectrum
- * @param {number} percentage the percentage
+ * @param {number} percentage the percentage as a decimal between 0 and 1
  * @returns {number} the lineair interpolated number
  */
 function lerp(min, max, percentage) {
